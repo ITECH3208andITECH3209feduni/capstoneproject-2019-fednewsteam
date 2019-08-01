@@ -1,2 +1,3 @@
-# capstoneproject-2019-fednewsteam
-capstoneproject-2019-fednewsteam created by GitHub Classroom
+FedNews Project
+
+The Federation University website requires an upgrade under the ‘FedNews’ webpage. The purpose of this project is to improve functionality and features within the ‘FedNews’ webpage and to overcome any defects from the initial installment. Although improvements are to be made certain features/functions need to be kept such as access for staff to create a news article and have it published on the webpage, news items are summarised in a daily email and emergency notification system should be part of the solution. The resources needed to upgrade the website are simple coding applications that supports PHP coding, HTML or even Javascript which are easily accessible via Laptop or Computer. The main objective is to create a webpage for creating,reading,updating and deleting news items while assuring conveniency, attractiveness and user friendly experience.
