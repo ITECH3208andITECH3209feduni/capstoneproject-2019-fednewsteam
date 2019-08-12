@@ -1,0 +1,9 @@
+DB INFO
+DB USER: root (password=root)
+DB NAME: FedNews
+Accessed on: Localhost
+
+LOGGINS
+email:      example@federation.edu.au
+password:   example
+
