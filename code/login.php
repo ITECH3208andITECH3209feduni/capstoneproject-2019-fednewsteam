@@ -22,7 +22,7 @@ if (isset($_POST['email'])) {
             // correct login
             $_SESSION['email'] = $email;
             $_SESSION['id'] = $id;
-            header("Location: students.php");
+            header("Location: student_news.php");
             die();
         } else $error = 'wrong password';
     }
@@ -34,20 +34,43 @@ if (isset($_POST['email'])) {
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="CSS/login.css">
 </head>
 <body>
-<?php require_once 'imports/navbar.php'; ?>
-<h1>Login</h1>
-<?php if (isset($error)) echo "<p style='color: red'>$error</p><br>"; ?>
-<form id="form" method="post">
-    email:<br>
-    <input type="text" name="email" maxlength="64" value="<?= $_POST['email'] ?>"><br>
-    password:<br>
-    <input type="password" name="password" maxlength="24"><br>
-    <input type="submit" value="Login">
-</form>
+<div id="Header"></div>
+<?php require_once 'imports/navbar_primary.php'; ?>
+<div id="strip"></div>
+
+<div id="background">
+  <br>
+  <br>
+  <center>
+    <div id="bond">
+      <br>
+      <br>
+      <br>
+      <form id="form" method="post">
+        Email: <br>
+        <input class="id" name="email" type="text" value="<?= $_POST['email'] ?>" required> <br>
+        Password:<br>
+        <input class="id" name="password" type="password" required>
+        <br>
+        <input class="button" type="submit" value="Login">
+        <input class="button" type="Reset">
+      </form>
+        <?php if (isset($error)) echo "<p style='color: red'>$error</p><br>"; ?>
+
+      <p>Username = 30331949</p>
+      <p>Password = Student</p>
+      <p>
+      <p>Username = 30331949</p>
+      <p>Password = Staff</p>
+
+    </div>
+  </center>
+</div>
 </body>
 </html>

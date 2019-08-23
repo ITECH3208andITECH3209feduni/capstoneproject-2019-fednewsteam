@@ -1,0 +1,81 @@
+#filters	{
+    margin-left:10px;
+	margin-top:20px;
+	overflow:hidden;
+	float:left;
+	width:830px;
+	height:100px;
+	Background-size:cover;
+	background-color:#eee;
+
+}
+#title{
+	margin-top:50px;
+	margin-left:240px;
+	font-size:20px;
+	font-weight:bold;
+	width:100px;
+	height:30px;
+}
+#lRSS{
+	margin-left:1000px;
+	margin-top:-30px;
+}
+#sArt1{
+	Background-color:#FFFFFF;
+	border-color:000080;
+	border-style:solid;
+	height:200px;
+	width:830px;
+	margin-left:240px;
+	margin-top:120px;
+	cursor:pointer;
+}
+#pic1{
+	background-image:url("Images/img1.png");
+	background-size:cover;
+	height:160px;
+	width:160px;
+	margin-left:20px;
+	margin-top:20px;
+}
+#text{
+	color:000080;
+	margin-left:205px;
+	margin-top:-160px;
+	height:160px;
+	width:600px;
+	background-color:#FFFFFF;
+}
+#sArt2{
+	border-color:000080;
+	border-style:solid;
+	height:200px;
+	width:830px;
+	margin-left:240px;
+	cursor:pointer;
+}
+#pic2{
+	background-image:url("Images/img2.png");
+	background-size:cover;
+	height:160px;
+	width:160px;
+	margin-left:20px;
+	margin-top:20px;
+}
+#sArt3{
+	border-color:000080;
+	border-style:solid;
+	height:200px;
+	width:830px;
+	margin-left:240px;
+	cursor:pointer;
+}
+#pic3{
+	background-image:url("Images/img3.png");
+	background-size:cover;
+	height:160px;
+	width:160px;
+	margin-left:20px;
+	margin-top:20px;
+}
