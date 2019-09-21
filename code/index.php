@@ -1,4 +1,4 @@
-<?php require_once 'imports/permission_levels/public.php'?>
+<?php require_once 'imports/permission_levels/public.php' ?>
 
 <html lang="en">
 <head>
@@ -17,43 +17,32 @@
       <?php require_once 'navbar_secondary.php'; ?>
     <div id="body">
       <h1>News</h1>
-      <br>
-      <center>
+      <div style="text-align: center;">
+        <a class="prev" onclick="plusSlides(-1)">&#10094; </a>
         <div class="slideshow-container">
           <div class="mySlides fade">
-            <div class="numbertext"></div>
-            <img src="CSS/Images/img1.png" style="width:300px""Height:300px">
-            <div class="text"></div>
+            <img src="CSS/Images/img1.png" style="width: 320px; height:320px">
+            <div class="text">image 1</div>
           </div>
-
           <div class="mySlides fade">
-            <div class="numbertext"></div>
-            <img src="CSS/Images/img2.png" style="width:300px""height:300px">
-            <div class="text"></div>
+            <img src="CSS/Images/img2.png" style="width: 320px; height:320px">
+            <div class="text">image 2</div>
           </div>
-
           <div class="mySlides fade">
-            <div class="numbertext"></div>
-            <img src="CSS/Images/img3.png" style="width:300px""height:300px">
-            <div class="text"></div>
+            <img src="CSS/Images/img3.png" style="width: 320px; height:320px">
+            <div class="text">image 3</div>
           </div>
-
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
+        <a class="next" onclick="plusSlides(1)">&#10095; </a>
         <!-- This script needs to be run on the DOM after the slideshow-container is declared -->
         <script src="JS/SlideShow.js"></script>
-        <br>
         <div>
-          <span class="dot" onclick="currentSlide(0)"></span>
+          <span class="dot active" onclick="currentSlide(0)"></span>
           <span class="dot" onclick="currentSlide(1)"></span>
           <span class="dot" onclick="currentSlide(2)"></span>
         </div>
-      </center>
-      <br>
+      </div>
       <div id="Article"><h1>Articles</h1></div>
-      <br>
-      <br>
       <a href="HTML/article1.html">
         <div id="sArt1">
           <div id="pic1"></div>
