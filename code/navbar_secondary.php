@@ -7,6 +7,7 @@
     <?php
     if (has_permission('student')) { ?>
       <a href="student_news.php"><input class="navCol" type="button" value="Student News"></a><br>
+      <a href="submit_article.php"><input class="navCol" type="button" value="Submit Article"></a><br>
     <?php } ?>
 
     <?php

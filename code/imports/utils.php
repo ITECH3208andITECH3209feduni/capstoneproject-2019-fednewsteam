@@ -1,5 +1,6 @@
 <?php
 
+require_once 'blacklist.php';
 
 /**
  * @return mysqli
@@ -30,19 +31,17 @@ function get_hash($pass) {
   return crypt($pass, $local_salt);
 }
 
-
 /**
  * @param $string    String - The input to be filtered. Can be any case (upper
  *                   or lower).
- * @param $blacklist array - The list of words to be filtered out. All words
- *                   should be lowercase.
  *
  * @return array
  *
  * This function is used to parse incoming news stories. It returns an array
  * containing banned words which appear in the text
  */
-function filter_language($string, $blacklist) {
+function filter_language($string) {
+    global $blacklist;
   $words = explode(' ', strtolower($string));
   $found = [];
   foreach ($blacklist as $item)
