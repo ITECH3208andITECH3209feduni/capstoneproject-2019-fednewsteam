@@ -1,5 +1,7 @@
+<?php require_once 'imports/permission_levels/student_only.php'; ?>
+
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <title>Student News</title>
   <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css">

@@ -4,6 +4,14 @@ DB NAME: FedNews
 Accessed on: Localhost
 
 LOGINS
-email:      example@federation.edu.au
-password:   example
+email:      30331949
+password:   Student
+type:       Student
 
+email:      30331950
+password:   Staff
+type:       Staff
+
+email:      30331951
+password:   Admin
+type:       Admin

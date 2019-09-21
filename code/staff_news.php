@@ -1,5 +1,8 @@
-<html>
+<?php require_once 'imports/permission_levels/staff_only.php'; ?>
+
+<html lang="en">
 <head>
+  <title>Staff News</title>
   <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css">
   <link rel="stylesheet" type="text/css" href="CSS/staff_news.css">
 </head>

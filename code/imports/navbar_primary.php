@@ -8,4 +8,3 @@
         <a href="https://federation.edu.au/news"><input class="navBar" type="button" value="About us"></a>
     </div>
 </div>
-

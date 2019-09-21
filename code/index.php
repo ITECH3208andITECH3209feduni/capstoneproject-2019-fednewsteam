@@ -1,5 +1,8 @@
-<html>
+<?php require_once 'imports/permission_levels/public.php'?>
+
+<html lang="en">
 <head>
+  <title>FedNews</title>
   <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css">
   <link rel="stylesheet" type="text/css" href="CSS/slideshow.css">
   <link rel="stylesheet" type="text/css" href="CSS/articles.css">
