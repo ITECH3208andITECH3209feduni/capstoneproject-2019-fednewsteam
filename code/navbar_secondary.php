@@ -1,6 +1,4 @@
 <?php require_once 'imports/permission_levels/utils.php'; ?>
-<?php var_export($_SESSION) ?>
-
 
 <div id="nav2">
   <a href="index.html"><input class="navCol" type="button" value="FedNews"></a><br>
