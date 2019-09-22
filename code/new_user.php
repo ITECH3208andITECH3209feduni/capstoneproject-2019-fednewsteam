@@ -29,6 +29,7 @@ if (isset($_POST['username'])) {
 <html lang="en">
 <head>
   <title>New User</title>
+  <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css">
   <link rel="stylesheet" type="text/css" href="CSS/login.css">
 </head>
 <body>

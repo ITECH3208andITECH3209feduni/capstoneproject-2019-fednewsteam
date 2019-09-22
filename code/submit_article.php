@@ -52,9 +52,8 @@ if (isset($_POST['title'])) {
   <div id="bond">
       <?php require_once 'navbar_secondary.php'; ?>
     <div id="body">
-
       <form id="form" method="post">
-        <h2>New User</h2>
+        <h2>Submit Article</h2>
         Article Title <br>
         <input id='title' name="title" type="text" value="<?= $_POST['title'] ?>" required maxlength="128"> <br>
         Text (5000 char max):<br>
@@ -66,7 +65,7 @@ if (isset($_POST['title'])) {
           <option value="staff"<?= $_POST['audience'] == 'staff' ? 'selected' : '' ?>>staff</option>
         </select>
         <br>
-        <input class="button" type="submit" value="Create">
+        <input class="button" type="submit" value="Submit For Review">
         <input class="button" type="Reset">
       </form>
         <?php if (isset($error)) echo "<p style='color: red'>$error</p><br>"; ?>

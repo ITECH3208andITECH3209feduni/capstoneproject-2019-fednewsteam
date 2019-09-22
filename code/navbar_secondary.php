@@ -14,7 +14,6 @@
     if (has_permission('staff')) { ?>
       <input class="navCol" type="button" value="Staff News" onclick="location.href='staff_news.php';">
       <input class="navCol" type="button" value="RSS Feeds" onclick="location.href='HTML/temp.html';">
-      <input class="navCol" type="button" value="Submit News" onclick="location.href='HTML/temp.html';">
     <?php } ?>
 
     <?php
