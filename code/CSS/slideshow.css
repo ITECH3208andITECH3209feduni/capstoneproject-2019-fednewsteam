@@ -1,5 +1,12 @@
 * {box-sizing:border-box}
 
+#slideshow_outer_container {
+  display: inline-block;
+  text-align: center;
+  max-width: 800px;
+  min-width: 615px;
+}
+
 .slideshow-container {
   display: inline-block;
   height: 320px;

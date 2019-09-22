@@ -1,31 +1,31 @@
 <?php require_once 'imports/permission_levels/utils.php'; ?>
 
 <div id="nav2">
-  <a href="index.html"><input class="navCol" type="button" value="FedNews"></a><br>
-  <a href="HTML/temp.html"><input class="navCol" type="button" value="Events"></a><br>
-  <a href="HTML/temp.html"><input class="navCol" type="button" value="Headliners"></a><br>
+  <input class="navCol" type="button" value="FedNews" onclick="location.href='index.php';">
+  <input class="navCol" type="button" value="Events" onclick="location.href='HTML/temp.html';">
+  <input class="navCol" type="button" value="Headliners" onclick="location.href='HTML/temp.html';">
     <?php
     if (has_permission('student')) { ?>
-      <a href="student_news.php"><input class="navCol" type="button" value="Student News"></a><br>
-      <a href="submit_article.php"><input class="navCol" type="button" value="Submit Article"></a><br>
+      <input class="navCol" type="button" value="Student News" onclick="location.href='student_news.php';">
+      <input class="navCol" type="button" value="Submit Article" onclick="location.href='submit_article.php';">
     <?php } ?>
 
     <?php
     if (has_permission('staff')) { ?>
-      <a href="staff_news.php"><input class="navCol" type="button" value="Staff News"></a><br>
-      <a href="HTML/temp.html"><input class="navCol" type="button" value="RSS Feeds"></a><br>
-      <a href="HTML/temp.html"><input class="navCol" type="button" value="Submit News"></a><br>
+      <input class="navCol" type="button" value="Staff News" onclick="location.href='staff_news.php';">
+      <input class="navCol" type="button" value="RSS Feeds" onclick="location.href='HTML/temp.html';">
+      <input class="navCol" type="button" value="Submit News" onclick="location.href='HTML/temp.html';">
     <?php } ?>
 
     <?php
     if (has_permission('admin')) { ?>
-      <a href="new_user.php"><input class="navCol" type="button" value="New User"></a><br>
+      <input class="navCol" type="button" value="New User" onclick="location.href='new_user.php';">
     <?php } ?>
 
     <?php
     if (logged_in()) { ?>
-      <a href="imports/logout.php"><input class="navCol" type="button" value="Logout"></a><br>
+      <input class="navCol" type="button" value="Logout" onclick="location.href='imports/logout.php';">
     <?php } else { ?>
-      <a href="login.php"><input class="navCol" type="button" value="Log In"></a><br>
+      <input class="navCol" type="button" value="Log In" onclick="location.href='login.php';">
     <?php } ?>
 </div>

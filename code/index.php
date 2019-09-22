@@ -5,7 +5,6 @@
   <title>FedNews</title>
   <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css">
   <link rel="stylesheet" type="text/css" href="CSS/slideshow.css">
-  <link rel="stylesheet" type="text/css" href="CSS/articles.css">
 </head>
 <body>
 <div id="Header"></div>
@@ -17,7 +16,7 @@
       <?php require_once 'navbar_secondary.php'; ?>
     <div id="body">
       <h1>News</h1>
-      <div style="text-align: center;">
+      <div id="slideshow_outer_container">
         <a class="prev" onclick="plusSlides(-1)">&#10094; </a>
         <div class="slideshow-container">
           <div class="mySlides fade">
@@ -42,42 +41,44 @@
           <span class="dot" onclick="currentSlide(2)"></span>
         </div>
       </div>
-      <div id="Article"><h1>Articles</h1></div>
-      <a href="HTML/article1.html">
-        <div id="sArt1">
-          <div id="pic1"></div>
-          <div id="text">Text text text text text text tex text text text text text text text text text text text text
+      <h1>Articles</h1>
+      <div class="article">
+        <a href="HTML/article1.html">
+          <img class="article_pic" src="CSS/Images/img1.png">
+          <div class="article_text">Text text text text text text tex text text text text text text text text text text
+            text text
             text text text text text text text text text text text tex text text text text text text text text text text
             text text text text text text text text text text text text text tex text text text text text text text text
             text text text text text text text text text text text text text text text tex text text text text text text
             text text text text text text text text text text text text
           </div>
-        </div>
-      </a>
-      <br>
-      <a href="HTML/article2.html">
-        <div id="sArt2">
-          <div id="pic2"></div>
-          <div id="text">Text text text text text text tex text text text text text text text text text text text text
+        </a>
+      </div>
+      <div class="article">
+        <a href="HTML/article1.html">
+          <img class="article_pic" src="CSS/Images/img1.png">
+          <div class="article_text">Text text text text text text tex text text text text text text text text text text
+            text text
             text text text text text text text text text text text tex text text text text text text text text text text
             text text text text text text text text text text text text text tex text text text text text text text text
             text text text text text text text text text text text text text text text tex text text text text text text
             text text text text text text text text text text text text
           </div>
-        </div>
-      </a>
-      <br>
-      <a href="HTML/article3.html">
-        <div id="sArt3">
-          <div id="pic3"></div>
-          <div id="text">Text text text text text text tex text text text text text text text text text text text text
+        </a>
+      </div>
+      <div class="article">
+        <a href="HTML/article1.html">
+          <img class="article_pic" src="CSS/Images/img1.png">
+          <div class="article_text">Text text text text text text tex text text text text text text text text text text
+            text text
             text text text text text text text text text text text tex text text text text text text text text text text
             text text text text text text text text text text text text text tex text text text text text text text text
             text text text text text text text text text text text text text text text tex text text text text text text
             text text text text text text text text text text text text
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
+
     </div>
   </div>
 </div>
