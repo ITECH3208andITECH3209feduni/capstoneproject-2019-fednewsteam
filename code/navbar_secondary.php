@@ -19,6 +19,7 @@
     <?php
     if (has_permission('admin')) { ?>
       <input class="navCol" type="button" value="New User" onclick="location.href='new_user.php';">
+      <input class="navCol" type="button" value="Pending Articles" onclick="location.href='pending_articles.php';">
     <?php } ?>
 
     <?php

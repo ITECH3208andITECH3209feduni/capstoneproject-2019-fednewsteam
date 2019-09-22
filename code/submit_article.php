@@ -3,45 +3,45 @@
 require_once 'imports/permission_levels/student_only.php';
 
 if (isset($_POST['title'])) {
-    // if information is returned, attempt to log in
+  // if information is returned, attempt to log in
 
-    $title = $_POST['title'];
-    $text = $_POST['text'];
-    $audience = $_POST['audience'];
-    $author = $_SESSION['username'];
+  $title = $_POST['title'];
+  $text = $_POST['text'];
+  $audience = $_POST['audience'];
+  $author = $_SESSION['username'];
 
+  require_once 'imports/utils.php';
+  $bad_words = filter_language($text);
+
+  if (!empty($bad_words)) {
+    $bad_words = implode(', ', $bad_words);
+    $error = "Please remove the following words/phrases and resubmit: $bad_words";
+  } else {
     require_once 'imports/utils.php';
-    $bad_words = filter_language($text);
-
-    if (!empty($bad_words)) {
-      $bad_words = implode(', ', $bad_words);
-        $error = "Please remove the following words/phrases and resubmit: $bad_words";
+    $db = get_db();
+    $stmt = $db->prepare("INSERT INTO Article (title, text, audience, author, date) VALUES (?,?,?,?, CURDATE());");
+    $stmt->bind_param("ssss", $title, $text, $audience, $author);
+    if ($stmt->execute()) {
+      $_POST['title'] = '';
+      $_POST['text'] = '';
+      $_POST['audience'] = 'public';
+      $msg = "Article: '$title' created successfully";
     } else {
-        require_once 'imports/utils.php';
-        $db = get_db();
-        $stmt = $db->prepare("INSERT INTO Article (title, text, audience, author) VALUES (?,?,?,?);");
-        $stmt->bind_param("ssss", $title, $text, $audience, $author);
-        if ($stmt->execute()) {
-            $_POST['title'] = '';
-            $_POST['text'] = '';
-            $_POST['audience'] = 'public';
-            $error = "Article: '$title' created successfully";
-        } else {
-            $error = "Something has gone terribly wrong. Please contact Uni Tech Support.";
-        }
-        $stmt->close();
+      $error = "Something has gone terribly wrong. Please contact Uni Tech Support.";
     }
+    $stmt->close();
+  }
 } else {
-    $_POST['title'] = '';
-    $_POST['text'] = '';
-    $_POST['audience'] = '';
+  $_POST['title'] = '';
+  $_POST['text'] = '';
+  $_POST['audience'] = '';
 }
 ?>
 <html lang="en">
 <head>
   <title>FedNews</title>
   <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css">
-  <link rel="stylesheet" type="text/css" href="CSS/new_user.css">
+  <link rel="stylesheet" type="text/css" href="CSS/forms.css">
 </head>
 <body>
 <div id="Header"></div>
@@ -50,7 +50,7 @@ if (isset($_POST['title'])) {
 <div id="background">
   <br>
   <div id="bond">
-      <?php require_once 'navbar_secondary.php'; ?>
+    <?php require_once 'navbar_secondary.php'; ?>
     <div id="body">
       <form id="form" method="post">
         <h2>Submit Article</h2>
@@ -68,7 +68,9 @@ if (isset($_POST['title'])) {
         <input class="button" type="submit" value="Submit For Review">
         <input class="button" type="Reset">
       </form>
-        <?php if (isset($error)) echo "<p style='color: red'>$error</p><br>"; ?>
+      <?php if (isset($error)) echo "<p style='color: red'>$error</p><br>"; ?>
+      <?php if (isset($msg)) echo "<p style='color: green'>$msg</p><br>"; ?>
+
 
     </div>
   </div>

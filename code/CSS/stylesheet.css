@@ -79,6 +79,7 @@ input.navBar:hover {
 }
 
 #bond {
+    margin: 0;
     display: inline-block;
     height: auto;
     Background-color: #FFFFFF;
@@ -89,6 +90,7 @@ input.navBar:hover {
     margin-top: 30px;
     padding: 20px;
     float: left;
+    min-width: 840px;
     max-width: 840px;
     height: auto;
     background-color: #eee;
@@ -141,7 +143,8 @@ input.navBar:hover {
 @media (max-width: 1150px) {
     #body {
         margin-top: 20px;
-        max-width: 100%;
+        width: 100%;
+        max-width: 800px;
     }
 
     #bond {

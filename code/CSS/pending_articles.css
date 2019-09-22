@@ -1,0 +1,27 @@
+table {
+    text-align: left;
+    max-width: 100%;
+    min-width: 100%;
+    background: #FFFFFF;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+th {
+    background-color: #000099;
+    color: white;
+}
+
+.small_th {
+    width: 75px;
+}
+
+tr:hover {
+    background: #d0d0d0;
+}

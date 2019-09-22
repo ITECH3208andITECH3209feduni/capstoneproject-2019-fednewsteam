@@ -5,12 +5,24 @@
     min-width: 615px;
 }
 
-#title,#text {
+form input {
     min-width: 100%;
     max-width: 100%;
     margin-bottom: 10px;
 }
 
+form .button {
+    min-width: initial;
+    max-width: initial;
+    margin-bottom: 0;
+
+}
+
 #form select {
     margin-bottom: 10px;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
 }
