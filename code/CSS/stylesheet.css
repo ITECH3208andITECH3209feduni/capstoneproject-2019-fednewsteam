@@ -140,6 +140,10 @@ input.navBar:hover {
     cursor: pointer;
 }
 
+.article_heading {
+    color: #000000;
+}
+
 @media (max-width: 1150px) {
     #body {
         margin-top: 20px;

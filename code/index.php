@@ -1,5 +1,36 @@
-<?php require_once 'imports/permission_levels/public.php' ?>
+<?php
 
+require_once 'imports/permission_levels/public.php';
+
+require_once 'imports/utils.php';
+$db = get_db();
+
+
+$query = <<<MYSQL
+SELECT id, title, text, author, DATE_FORMAT(date, '%d/%m/%Y')
+FROM Article
+WHERE audience = 'public'
+  and reviewed = 'approved'
+ORDER BY date DESC
+LIMIT 10;
+MYSQL;
+
+$stmt = $db->prepare($query);
+$stmt->execute();
+$stmt->store_result();
+$stmt->bind_result($id, $title, $text, $author, $date);
+$articles = [];
+while ($stmt->fetch()) {
+  if (strlen($text) > 500) {
+    $text = substr($text, 0, 500);
+    $text .= '...';
+  }
+
+  $articles[] = ['id' => $id, 'title' => $title, 'text' => $text, 'author' => $author, 'date' => $date];
+}
+$stmt->close();
+
+?>
 <html lang="en">
 <head>
   <title>FedNews</title>
@@ -13,7 +44,7 @@
 <div id="background">
   <br>
   <div id="bond">
-      <?php require_once 'navbar_secondary.php'; ?>
+    <?php require_once 'navbar_secondary.php'; ?>
     <div id="body">
       <h1>News</h1>
       <div id="slideshow_outer_container">
@@ -42,43 +73,15 @@
         </div>
       </div>
       <h1>Articles</h1>
-      <div class="article">
-        <a href="HTML/article1.html">
-          <img class="article_pic" src="CSS/Images/img1.png">
-          <div class="article_text">Text text text text text text tex text text text text text text text text text text
-            text text
-            text text text text text text text text text text text tex text text text text text text text text text text
-            text text text text text text text text text text text text text tex text text text text text text text text
-            text text text text text text text text text text text text text text text tex text text text text text text
-            text text text text text text text text text text text text
-          </div>
-        </a>
-      </div>
-      <div class="article">
-        <a href="HTML/article1.html">
-          <img class="article_pic" src="CSS/Images/img1.png">
-          <div class="article_text">Text text text text text text tex text text text text text text text text text text
-            text text
-            text text text text text text text text text text text tex text text text text text text text text text text
-            text text text text text text text text text text text text text tex text text text text text text text text
-            text text text text text text text text text text text text text text text tex text text text text text text
-            text text text text text text text text text text text text
-          </div>
-        </a>
-      </div>
-      <div class="article">
-        <a href="HTML/article1.html">
-          <img class="article_pic" src="CSS/Images/img1.png">
-          <div class="article_text">Text text text text text text tex text text text text text text text text text text
-            text text
-            text text text text text text text text text text text tex text text text text text text text text text text
-            text text text text text text text text text text text text text tex text text text text text text text text
-            text text text text text text text text text text text text text text text tex text text text text text text
-            text text text text text text text text text text text text
-          </div>
-        </a>
-      </div>
-
+      <?php foreach ($articles as $a) { ?>
+        <div class="article">
+          <a href="article.php?id=<?= $a['id'] ?>">
+            <h3 class="article_heading"><?= $a['date'] ?> - <?= $a['title'] ?></h3>
+            <img class="article_pic" src="CSS/Images/img1.png">
+            <div class="article_text"><?= $a['text'] ?></div>
+          </a>
+        </div>
+      <?php } ?>
     </div>
   </div>
 </div>
