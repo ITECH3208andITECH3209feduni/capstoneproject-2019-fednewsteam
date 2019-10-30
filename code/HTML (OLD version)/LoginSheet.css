@@ -1,0 +1,76 @@
+#background{
+	width:100%;
+	height:100%;
+	background:url("Images/Background.png");
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+#strip{
+	Background-image:url("Images/strip.png");
+	background-size:cover;
+	width:100%;
+	height:10px;
+}
+#Header{
+	margin-left:250px;
+	width:1025;
+	height:100px;
+	background-image: url("Images/FedHeader.png");
+}
+
+input.navBar{
+	font-size:13px;
+	font-weight:bold;
+	text-align:center;
+	margin-left:10px;
+	padding:0px;
+	border:0px;
+	width:125px;
+	height:30px;
+	background-color:000099;
+	color:#FFFFFF
+}
+input.navBar:hover{
+	background-color:#191970;
+	cursor:pointer;
+}
+#pos{
+	margin-left:250px;
+}
+#nav1{
+	padding:0px;
+	width:100%;
+	height:30px;
+	background-color:000099;
+}
+input.button{
+	Margin-top:10px;
+	height:30px;
+	Width:80px;
+	background-color:#4169e1;
+	color:#FFFFFF;
+}
+
+#bond{
+	overflow:hidden;
+margin-left: 380px;
+	border:1px;
+	width:600px;
+	height:350px;
+	Background-size:600px;
+	background-color:#FFFFFF;
+
+}
+
+#text{
+margin-left:50px;	
+margin-top:50px;
+}
+
+#login_head{
+	margin-top:1px;
+height:100px;
+width:350px;
+	background-image:url("Images/FedLogin.jpg");
+	background-size:cover;
+}

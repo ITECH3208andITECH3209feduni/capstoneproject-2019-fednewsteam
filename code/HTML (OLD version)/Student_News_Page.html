@@ -1,0 +1,62 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../CSS/Students_Article_Page.css">
+<script src="../JS/Event_Page.js"></script>
+</head>
+<body>
+<div id="Body">
+	 <input type="button" onclick="changeAudience(1)" value="Sci"><input type="button" onclick="changeAudience(2)" value="IT"><input type="button" onclick="changeAudience(3)" value="Eng">
+<div id="-1">
+
+<section id="1">
+<nav>
+<a href="article1.html">Sci</a><br>
+<div id="Peve1"></div>
+</nav>
+<article>Text text text text text text text text text text text text text text text text tex text text text text text text text text text text text text text text text text text text text text text text text tex text text text text text text text text text text text text text text text text text text</article>
+<input type="text" id="total_likes1" value="0"/>
+<input class="Like" type="button" value="Like"onClick="Add_Like1 ('total_likes1')" id="like"/>
+<input class="CommentButton" type="button" value="Comment"onClick="addComment()" id="comments"/>
+<form id="comment" class="Sci">
+<iframe src="comments.html" id="commentFrame"></iframe>
+<input type="button" onclick="closeForm()" id="close"value="save"/>
+<input type="button" onclick="closeForm()" id="close"Value="Close"/></form>
+</section>
+
+<section id="2">
+<nav>
+<a href="article2.html">IT</a><br>
+<div id="Peve2"></div>
+</nav>
+<article>Text text text text text text text text text text text text text text text text tex text text text text text text text text text text text text text text text text text text text text text text text tex text text text text text text text text text text text text text text text text text text</article>
+<input type="text" id="total_likes2" value="0"/>
+<input class="Like" type="button" value="Like"onClick="Add_Like2 ('total_likes2')" id="like"/>
+<input class="CommentButton" type="button" value="Comment"onClick="addComment2()" id="comments"/>
+<form id="comment2" class="IT">
+<iframe src="comments.html" id="commentFrame"></iframe>
+<input type="button" onclick="closeForm2()" id="close"value="save"/>
+<input type="button" onclick="closeForm2()" id="close"Value="Close"/>
+</form>
+</section>
+
+<section id="3">
+<nav><a href="article3.html">Eng</a><br>
+<div id="Peve3"></div>
+</nav>
+<article>Text text text text text text text text text text text text text text text text tex text text text text text text text text text text text text text text text text text text text text text text text tex text text text text text text text text text text text text text text text text text text</article>
+<input type="text" id="total_likes3" value="0"/>
+<input class="Like" type="button" value="Like"onClick="Add_Like3 ('total_likes3')" id="like"/>
+<input class="CommentButton" type="button" value="Comment"onClick="addComment3()" id="comments"/>
+<form id="comment3" class="Eng">
+<iframe src="comments.html" id="commentFrame"></iframe>
+<input type="button" onclick="closeForm3()" id="close"value="save"/>
+<input type="button" onclick="closeForm3()" id="close"Value="Close"/>
+</form>
+</section>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
