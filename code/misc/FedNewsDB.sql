@@ -1,4 +1,4 @@
-DROP SCHEMA IF EXISTS FedNews;
+drop schema if exists FedNews;
 
 create schema FedNews collate latin1_swedish_ci;
 
@@ -10,6 +10,7 @@ create table Article (
     author varchar(128) not null,
     reviewed enum ('pending', 'approved', 'rejected') default 'pending' not null,
     date date not null,
+    image varchar(128) not null,
     constraint Article_id_uindex
         unique (id)
     );
@@ -26,14 +27,7 @@ create table User (
 
 
 
-INSERT INTO FedNews.User (username, password, permissions)
-VALUES ('30331949', '$2y$12$YoqlO07S4kO2m.4Nu0AAZuv3zKDGIJ4c2eF0T0YSdhE4leibuDf12', 'student');
-INSERT INTO FedNews.User (username, password, permissions)
-VALUES ('30331950', '$2y$12$iCDFzj3hhA/gTP20O2UuKusrTvDM.BE9x.ogDdMVLsu6PTBqhRxhy', 'staff');
-INSERT INTO FedNews.User (username, password, permissions)
-VALUES ('30331951', '$2y$12$gmzU6j7C8sIau.eVU5TC6OLH//GhDKKrI1.3VfexsPq9pt1SFLHz.', 'admin');
-
-INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date)
+INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date, image)
 VALUES (1, 'Free TAFE programs a boost for female students', 'Female students at Federation University are taking up trade and vocational education programs in record numbers following the introduction of Free TAFE programs.
 
 The near doubling of female enrolments â€“ from 351 in 2018 to 685 this year â€“ is largely credited to the introduction of Free TAFE.
@@ -62,19 +56,26 @@ Certificate IV in Accounting and Bookkeeping (54 students, 52 Free TAFE)
 Certificate III in Horticulture (47 students, 44 Free TAFE)
 Quotes attributable to Vice-Chancellor and President, Professor Helen Bartlett
 
-â€œThe Free TAFE programs are proving to be very popular and I welcome all new students enrolling at Federation TAFE. It is an exciting time to be a female TAFE student. Throughout Victoria, female participation in Free TAFE programs has increased from 48 to 57 per cent.â€
+â€œThe Free TAFE programs are proving to be very popular and I welcome all new students enrolling at Federation TAFE. It is an exciting time to be a female TAFE student. Throughout Victoria, female participation in Free TAFE programs has increased from 48 to 57 per cent.â€  
 
 â€œAs the first technical training institute in Australia, Federation TAFE has a strong reputation in creating job-ready graduates.â€',
-        'public', '30331949', 'approved', '2019-09-10');
-INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date)
-VALUES (2, 'title 2', 'text 2', 'staff', '30331949', 'pending', '2019-09-22');
-INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date)
-VALUES (3, 'title 2', 'text 2', 'public', '30331949', 'pending', '2019-09-21');
-INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date)
-VALUES (4, 'title 2', 'text 2', 'public', '30331949', 'pending', '2019-09-20');
-INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date)
-VALUES (5, 'title 2', 'text 2', 'public', '30331949', 'pending', '2019-09-19');
-INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date)
-VALUES (6, 'title 2', 'text 2', 'public', '30331949', 'pending', '2019-09-18');
-INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date)
-VALUES (7, 'asd', 'hello', 'staff', '30331949', 'pending', '2019-09-12');
+        'public', '30331949', 'approved', '2019-09-10',
+        'https://studentservices.okstate.edu/sites/default/files/weatpromopic.png');
+INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date, image)
+VALUES (2, 'title 2', 'text 2', 'staff', '30331949', 'approved', '2019-09-22', 'CSS/Images/img1.png');
+INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date, image)
+VALUES (3, 'title 3', 'text 2', 'staff', '30331949', 'approved', '2019-09-21', 'CSS/Images/img3.png');
+INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date, image)
+VALUES (4, 'title 4', 'text 2', 'public', '30331949', 'approved', '2019-09-20', 'CSS/Images/img1.png');
+INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date, image)
+VALUES (5, 'title 5', 'text 2', 'public', '30331949', 'approved', '2019-09-19', 'CSS/Images/img2.png');
+INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date, image)
+VALUES (6, 'title 6', 'text 2', 'public', '30331949', 'approved', '2019-09-18', 'CSS/Images/img3.png');
+INSERT INTO FedNews.Article (id, title, text, audience, author, reviewed, date, image)
+VALUES (7, 'asd', 'hello', 'staff', '30331949', 'approved', '2019-09-12', 'CSS/Images/img2.png');
+INSERT INTO FedNews.User (username, password, permissions)
+VALUES ('30331949', '$2y$12$YoqlO07S4kO2m.4Nu0AAZuv3zKDGIJ4c2eF0T0YSdhE4leibuDf12', 'student');
+INSERT INTO FedNews.User (username, password, permissions)
+VALUES ('30331950', '$2y$12$iCDFzj3hhA/gTP20O2UuKusrTvDM.BE9x.ogDdMVLsu6PTBqhRxhy', 'staff');
+INSERT INTO FedNews.User (username, password, permissions)
+VALUES ('30331951', '$2y$12$gmzU6j7C8sIau.eVU5TC6OLH//GhDKKrI1.3VfexsPq9pt1SFLHz.', 'admin');
