@@ -1,3 +1,10 @@
 #body {
     text-align: left;
 }
+
+img {
+    max-width: 50%;
+    min-width: 25%;
+    float: right;
+    margin: 16px
+}

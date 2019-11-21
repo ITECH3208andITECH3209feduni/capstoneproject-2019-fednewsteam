@@ -8,15 +8,15 @@ if (isset($_REQUEST['id'])) {
   require_once 'imports/utils.php';
   $db = get_db();
 
-  $query = "SELECT id, title, audience, text, DATE_FORMAT(date, '%d/%m/%Y') FROM Article WHERE id = ?;";
+  $query = "SELECT id, title, audience, text, DATE_FORMAT(date, '%d/%m/%Y'), image FROM Article WHERE id = ?;";
   $stmt = $db->prepare($query);
   $stmt->bind_param('s', $id);
   $stmt->execute();
   $stmt->store_result();
-  $stmt->bind_result($id, $title, $audience, $text, $date);
+  $stmt->bind_result($id, $title, $audience, $text, $date, $image);
   while ($stmt->fetch()) {
     $a = ['id' => $id, 'title' => $title, '$audience' => $audience, 'text' => $text,
-      'date' => $date];
+      'date' => $date, 'image' => $image];
 
     if ($audience == 'public') require_once 'imports/permission_levels/public.php';
     else if ($audience == 'student') require_once 'imports/permission_levels/student_only.php';
@@ -40,6 +40,7 @@ if (isset($_REQUEST['id'])) {
   <div id="bond">
     <?php require_once 'navbar_secondary.php'; ?>
     <div id="body">
+      <img src="<?= $a['image'] ?>">
       <h1><?= $a['title'] ?></h1>
       <p><?= $a['date'] ?></p>
       <p><?= $a['text'] ?></p>

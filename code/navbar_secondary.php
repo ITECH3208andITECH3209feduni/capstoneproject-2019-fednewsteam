@@ -2,8 +2,6 @@
 
 <div id="nav2">
   <input class="navCol" type="button" value="FedNews" onclick="location.href='index.php';">
-  <input class="navCol" type="button" value="Events" onclick="location.href='HTML/temp.html';">
-  <input class="navCol" type="button" value="Headliners" onclick="location.href='HTML/temp.html';">
     <?php
     if (has_permission('student')) { ?>
       <input class="navCol" type="button" value="Student News" onclick="location.href='student_news.php';">
@@ -13,7 +11,6 @@
     <?php
     if (has_permission('staff')) { ?>
       <input class="navCol" type="button" value="Staff News" onclick="location.href='staff_news.php';">
-      <input class="navCol" type="button" value="RSS Feeds" onclick="location.href='HTML/temp.html';">
     <?php } ?>
 
     <?php

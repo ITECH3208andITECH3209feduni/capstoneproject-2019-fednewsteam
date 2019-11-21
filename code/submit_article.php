@@ -9,6 +9,7 @@ if (isset($_POST['title'])) {
   $text = $_POST['text'];
   $audience = $_POST['audience'];
   $author = $_SESSION['username'];
+  $image = $_SESSION['image'];
 
   require_once 'imports/utils.php';
   $bad_words = filter_language($text);
@@ -19,15 +20,16 @@ if (isset($_POST['title'])) {
   } else {
     require_once 'imports/utils.php';
     $db = get_db();
-    $stmt = $db->prepare("INSERT INTO Article (title, text, audience, author, date) VALUES (?,?,?,?, CURDATE());");
-    $stmt->bind_param("ssss", $title, $text, $audience, $author);
+    $stmt = $db->prepare("INSERT INTO Article (title, text, audience, author, date, image) VALUES (?,?,?,?, CURDATE());");
+    $stmt->bind_param("ssss", $title, $text, $audience, $author, $image);
     if ($stmt->execute()) {
       $_POST['title'] = '';
       $_POST['text'] = '';
       $_POST['audience'] = 'public';
+      $_POST['image'] = '';
       $msg = "Article: '$title' created successfully";
     } else {
-      $error = "Something has gone terribly wrong. Please contact Uni Tech Support.";
+      $error = "Something has gone terribly wrong. Please try again, or else contact Uni Tech Support.";
     }
     $stmt->close();
   }
@@ -35,6 +37,7 @@ if (isset($_POST['title'])) {
   $_POST['title'] = '';
   $_POST['text'] = '';
   $_POST['audience'] = '';
+  $_POST['image'] = '';
 }
 ?>
 <html lang="en">
@@ -56,6 +59,8 @@ if (isset($_POST['title'])) {
         <h2>Submit Article</h2>
         Article Title <br>
         <input id='title' name="title" type="text" value="<?= $_POST['title'] ?>" required maxlength="128"> <br>
+        Image URL <br>
+        <input id='image' name="image" type="text" value="<?= $_POST['image'] ?>" required maxlength="128"> <br>
         Text (5000 char max):<br>
         <textarea id="text" name="text" required maxlength="5000" rows="10"><?= $_POST['text'] ?></textarea> <br>
         Audience: <br>
