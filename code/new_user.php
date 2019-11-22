@@ -3,26 +3,28 @@
 require_once 'imports/permission_levels/admin_only.php';
 
 if (isset($_POST['username'])) {
-    // if information is returned, attempt to log in
-    require_once 'imports/utils.php';
-    $username = $_POST['username'];
-    $password = get_hash($_POST['password']);
-    $permissions = $_POST['permissions'];
-    $db = get_db();
+  // if information is returned, attempt to log in
+  require_once 'imports/utils.php';
+  $username = $_POST['username'];
+  $password = get_hash($_POST['password']);
+  $permissions = $_POST['permissions'];
+  $db = get_db();
 
-    $stmt = $db->prepare("INSERT INTO User (username, password, permissions) VALUES (?,?,?);");
-    $stmt->bind_param("sss", $username, $password, $permissions);
-    if ($stmt->execute()) {
-        $_POST['username'] = '';
-        $_POST['password'] = '';
-        $error = "$permissions $username created successfully";
-    } else {
-      $error = "DB error. User may already exist";
-    }
-    $stmt->close();
-} else {
+  $stmt = $db->prepare("INSERT INTO User (username, password, permissions) VALUES (?,?,?);");
+  $stmt->bind_param("sss", $username, $password, $permissions);
+  if ($stmt->execute()) {
     $_POST['username'] = '';
     $_POST['password'] = '';
+    $error = "$permissions $username created successfully";
+    header("Location: index.php");
+    die();
+  } else {
+    $error = "DB error. User may already exist";
+  }
+  $stmt->close();
+} else {
+  $_POST['username'] = '';
+  $_POST['password'] = '';
 }
 ?>
 <!DOCTYPE html>
@@ -57,7 +59,7 @@ if (isset($_POST['username'])) {
       <input class="button" type="submit" value="Create">
       <input class="button" type="Reset">
     </form>
-      <?php if (isset($error)) echo "<p style='color: red'>$error</p><br>"; ?>
+    <?php if (isset($error)) echo "<p style='color: red'>$error</p><br>"; ?>
   </div>
   <script type='text/javascript'>
       function check(input) {

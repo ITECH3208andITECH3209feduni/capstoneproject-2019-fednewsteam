@@ -8,8 +8,8 @@ if (isset($_POST['title'])) {
   $title = $_POST['title'];
   $text = $_POST['text'];
   $audience = $_POST['audience'];
+  $image = filter_var($_POST['image'], FILTER_VALIDATE_URL) ? $_POST['image'] : 'CSS/Images/img3.png';
   $author = $_SESSION['username'];
-  $image = $_SESSION['image'];
 
   require_once 'imports/utils.php';
   $bad_words = filter_language($text);
@@ -20,8 +20,8 @@ if (isset($_POST['title'])) {
   } else {
     require_once 'imports/utils.php';
     $db = get_db();
-    $stmt = $db->prepare("INSERT INTO Article (title, text, audience, author, date, image) VALUES (?,?,?,?, CURDATE());");
-    $stmt->bind_param("ssss", $title, $text, $audience, $author, $image);
+    $stmt = $db->prepare("INSERT INTO Article (title, text, audience, author, date, image) VALUES (?,?,?,?, CURDATE(),?);");
+    $stmt->bind_param("sssss", $title, $text, $audience, $author, $image);
     if ($stmt->execute()) {
       $_POST['title'] = '';
       $_POST['text'] = '';

@@ -11,12 +11,12 @@ $db = get_db();
 
 if (!isset($_REQUEST['title'])) {
   // first time loading page
-  $query = "SELECT title, text, audience, author, reviewed, DATE_FORMAT(date, '%d %b %Y') FROM Article WHERE id=?;";
+  $query = "SELECT title, text, audience, author, reviewed, DATE_FORMAT(date, '%d %b %Y'), image FROM Article WHERE id=?;";
   $stmt = $db->prepare($query);
   $stmt->bind_param('s', $id);
   $stmt->execute();
   $stmt->store_result();
-  $stmt->bind_result($title, $text, $audience, $author, $reviewed, $date);
+  $stmt->bind_result($title, $text, $audience, $author, $reviewed, $date, $image);
   $stmt->fetch();
   $stmt->close();
 
@@ -28,6 +28,8 @@ if (!isset($_REQUEST['title'])) {
   $author = $_REQUEST['author'];
   $reviewed = $_REQUEST['reviewed'];
   $date = $_REQUEST['date'];
+  $image = $_REQUEST['image'];
+
 
   require_once 'imports/utils.php';
   $bad_words = filter_language($text);
@@ -36,9 +38,9 @@ if (!isset($_REQUEST['title'])) {
     $bad_words = implode(', ', $bad_words);
     $error = "Please remove the following words/phrases and resubmit: $bad_words";
   } else {
-    $query = "UPDATE Article SET title=?, text=?, audience=?, author=?, reviewed=? WHERE id=?;";
+    $query = "UPDATE Article SET title=?, text=?, audience=?, author=?, reviewed=?, image=? WHERE id=?;";
     $stmt = $db->prepare($query);
-    $stmt->bind_param("ssssss", $title, $text, $audience, $author, $reviewed, $id);
+    $stmt->bind_param("sssssss", $title, $text, $audience, $author, $reviewed, $image, $id);
     if ($stmt->execute()) {
       $_REQUEST['title'] = '';
       $_REQUEST['text'] = '';
@@ -47,6 +49,7 @@ if (!isset($_REQUEST['title'])) {
       $_REQUEST['reviewed'] = '';
       $_REQUEST['id'] = '';
       $_REQUEST['date'] = '';
+      $_REQUEST['image'] = '';
       $msg = "Article: '$title' saved successfully";
     } else {
       $error = "Something has gone terribly wrong. Please contact Uni Tech Support.";
@@ -60,6 +63,12 @@ if (!isset($_REQUEST['title'])) {
   <title>FedNews</title>
   <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css">
   <link rel="stylesheet" type="text/css" href="CSS/forms.css">
+  <style>img {
+      max-width: 50%;
+      min-width: 25%;
+      margin: 16px;
+      display: block;
+    }</style>
 </head>
 <body>
 <div id="Header"></div>
@@ -74,9 +83,12 @@ if (!isset($_REQUEST['title'])) {
         <h2>Review Article</h2>
         Article Title <br>
         <input id='title' name="title" type="text" value="<?= $title ?>" required maxlength="128"> <br>
+        Image URL <br>
+        <input id='image' name="image" type="text" value="<?= $image ?>" required maxlength="128"> <br>
+        <img style='max-width: 50%;min-width: 25%;margin: 16px; display: block;' src="<?= $image ?>">
         Date: <br>
         <input id='date' name="date" type="text" value="<?= $date ?>" readonly> <br>
-        Author:  <br>
+        Author: <br>
         <input id='author' name="author" type="text" value="<?= $author ?>" readonly> <br>
         Text (5000 char max):<br>
         <textarea id="text" name="text" required maxlength="5000" rows="10"><?= $text ?></textarea> <br>
