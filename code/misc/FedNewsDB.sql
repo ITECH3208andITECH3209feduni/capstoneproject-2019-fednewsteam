@@ -2,6 +2,8 @@ drop schema if exists FedNews;
 
 create schema FedNews collate latin1_swedish_ci;
 
+use FedNews;
+
 create table Article (
     id int auto_increment,
     title varchar(128) not null,
